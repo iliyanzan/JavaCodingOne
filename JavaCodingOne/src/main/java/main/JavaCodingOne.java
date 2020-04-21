@@ -41,10 +41,13 @@ public class JavaCodingOne {
 			for (int c = 0; c < currentWords.size() && !allGood; c++) {
 				for (int k = 0; k < currentWords.get(c).length() && !allGood; k++) {
 					String testWord = currentWords.get(c).substring(0, k) + currentWords.get(c).substring(k + 1);
-					if (fewerThanNineLetterWordsSet.contains(testWord)) {
-						if (testWord.length() == 2) {
+					if (testWord.length() == 1) {
+						char ch = testWord.charAt(0);
+						if (ch == 'A' || ch == 'I') {
 							allGood = true;
-						} else if (!currentWords.contains(testWord)) {
+						}
+					} else if (fewerThanNineLetterWordsSet.contains(testWord)) {
+						if (!currentWords.contains(testWord)) {
 							currentWords.add(testWord);
 						}
 					}
